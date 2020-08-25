@@ -1,18 +1,15 @@
 import axios from "axios";
 import ErrorModel from "../models/ApiErrorModel";
 import { API_URL } from "./ApiUrl.js";
-// import { AUTHENTICATION_ERROR_CONSTANTS } from "./type";
 
 // Common ajax param for all xhr request
 const ajaxParams = {
-  // baseURL: API_URL, // Api URL "http://dev.letscherish.com" or 'https://api.letscherish.com' can be changed in const file.
-  baseURL: API_URL, // Api URL "http://dev.letscherish.com" or 'https://api.letscherish.com' can be changed in const file.
+  baseURL: API_URL,
 };
 
 export const AjaxRequest = async (params) => {
   console.log("ajax params", params);
   let requestParameters = { ...ajaxParams };
-  // let selectedCity = CommonFunctions.getCity();
 
   requestParameters["url"] = API_URL + params.url;
   requestParameters["method"] = params.method;
@@ -34,7 +31,6 @@ export const AjaxRequest = async (params) => {
   }
 
   try {
-    console.log("request params", requestParameters);
     const response = await axios(requestParameters);
 
     return response.data;

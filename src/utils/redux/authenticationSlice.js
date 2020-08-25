@@ -74,8 +74,6 @@ export function signUpUser(data) {
 
     if (res instanceof ErrorModel) {
       res.type = "login";
-      console.log("login error", res);
-      // dispatch(authenticationError(res));
       dispatch(setLoading(false));
     } else {
       // dispatch(loginUserSuccess(res.data));
